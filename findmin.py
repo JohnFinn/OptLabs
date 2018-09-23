@@ -86,19 +86,18 @@ def fib_search(func, borders, accuracy):
     x1, x2 = a + fibN * c, a + fibN1 * c
     fx1, fx2 = func(x1), func(x2)
     yield a,b,x1,x2
-    while True:
+    while b-a > accuracy:
         fibN2, fibN1 = fibN1, fibN
         fibN = fibN2 - fibN1
-        c = (b-a)/fibN2
         if fx1 < fx2:
             b = x2
             x2, fx2 = x1, fx1
-            x1 = a + fibN * c
+            x1 = a + fibN/fibN2 * (b-a)
             fx1 = func(x1)
         elif fx1 > fx2:
             a = x1
             x1, fx1 = x2, fx2
-            x2 = a + fibN1 * c
+            x2 = a + fibN1/fibN2 * (b-a)
             fx2 = func(x2)
         yield a, b, x1, x2
 
@@ -123,7 +122,7 @@ if __name__ == '__main__':
     xxx2, = ax.plot((left, left), (-10,200), 'b-.')
     left_border, = ax.plot((left, left), (-10,200), 'g-')
     right_border, = ax.plot((right, right), (-10,200), 'y-')
-    for new_left, new_right,x1,x2 in golden_ratio(f, (left, right), accuracy):
+    for new_left, new_right,x1,x2 in fib_search(f, (left, right), accuracy):
         # line1.set_ydata(numpy.sin(x + phase))
         # line2, = ax.plot(x, f(x), 'ro')
         xxx1.set_xdata(x1)
