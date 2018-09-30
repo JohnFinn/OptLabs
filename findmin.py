@@ -1,5 +1,7 @@
 #!/usr/bin/env ipython
 from matplotlib import pyplot
+from matplotlib.widgets import Button
+from matplotlib.lines import Line2D
 import numpy, time, random
 from counter import Counter
 from typing import Tuple, Generator, Callable
@@ -75,6 +77,11 @@ def fib_search(func:Cff, borders:Tff, accuracy:float)->GTffff:
             fx2 = func(x2)
         yield a, b, x1, x2
 
+def updateAllXData(lines, gen):
+    for args in gen:
+        for line, xdata in zip(lines, args):
+            line.set_xdata(xdata)
+        yield
 
 if __name__ == '__main__':
     def f(x):
@@ -82,27 +89,32 @@ if __name__ == '__main__':
 
     accuracy = .005
     left, right = -10, 10
-    
-    step = accuracy / 10 # for drawing 
-    arr = numpy.arange(left, right, step)
-    # res = pyplot.plot(arr, f(arr))
+    arr = numpy.arange(left, right, accuracy / 10)
 
     pyplot.ion()
     fig = pyplot.figure()
     ax = fig.add_subplot(111)
-
     line1, = ax.plot(arr, f(arr), 'b-') # Returns a tuple of line objects, thus the comma
-    xxx1, = ax.plot((left, left), (-10,200), 'b-.')
-    xxx2, = ax.plot((left, left), (-10,200), 'b-.')
-    left_border, = ax.plot((left, left), (-10,200), 'g-')
-    right_border, = ax.plot((right, right), (-10,200), 'y-')
-    for new_left, new_right,x1,x2 in findmin(f, (left, right), accuracy):
-        # line1.set_ydata(numpy.sin(x + phase))
-        # line2, = ax.plot(x, f(x), 'ro')
-        xxx1.set_xdata(x1)
-        xxx2.set_xdata(x2)
-        left_border.set_xdata(new_left)
-        right_border.set_xdata(new_right)
-        fig.canvas.draw()
-        fig.canvas.flush_events()
-        input()
+
+    _, _, *yborders =  pyplot.axis()
+    coords = (0,0), yborders
+    lines = ax.plot(
+        *coords, 'g-',
+        *coords, 'y-',
+        *coords, 'b-.',
+        *coords, 'b-.',
+    )
+
+    gen = updateAllXData(lines, fib_search(f, (left, right), accuracy))
+    def on_click(event):
+        try:
+            next(gen)
+        except StopIteration:
+            pass
+        else:
+            fig.canvas.flush_events()
+            fig.canvas.draw()
+
+    bnext = Button(pyplot.axes([0,0,.1,.1]),'Next')
+    bnext.on_clicked(on_click)
+    input()
