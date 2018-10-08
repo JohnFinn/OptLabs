@@ -56,6 +56,21 @@ def gradient_descent(func: Callable[[vec], float], x: vec, delta: float = .001, 
         yield grad
 
 
+class DrawOnClick:
+    def __init__(self, figure, gen):
+        self.figure = figure
+        self.gen = gen
+
+    def __call__(self, event):
+        try:
+            next(self.gen)
+        except StopIteration:
+            pass
+        else:
+            self.figure.canvas.flush_events()
+            self.figure.canvas.draw()
+
+
 if __name__ == '__main__':
     def f(x):
         return x ** 2 + 3 * x
@@ -89,16 +104,7 @@ if __name__ == '__main__':
 
     bnext3d = Button(pyplot.axes([.9, 0, 1, .1]), 'Next')
 
-    def on_click1(event):
-        try:
-            next(g)
-        except StopIteration:
-            pass
-        else:
-            fig.canvas.flush_events()
-            fig.canvas.draw()
-
-    bnext3d.on_clicked(on_click1)
+    bnext3d.on_clicked(DrawOnClick(fig, g))
 
     line1 = ax.plot(arr, f(arr), 'b-')
     _, _, *yborders = ax.axis()
@@ -112,18 +118,7 @@ if __name__ == '__main__':
 
     gen = update_all_x_data(lines, uniModMin.fib_search(f, (left, right), accuracy))
 
-
-    def on_click(event):
-        try:
-            next(gen)
-        except StopIteration:
-            pass
-        else:
-            fig.canvas.flush_events()
-            fig.canvas.draw()
-
-
     bnext = Button(pyplot.axes([0, 0, .1, .1]), 'Next')
-    bnext.on_clicked(on_click)
+    bnext.on_clicked(DrawOnClick(fig, gen))
     pyplot.show()
     input()
