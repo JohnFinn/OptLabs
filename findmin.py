@@ -75,6 +75,9 @@ if __name__ == '__main__':
     def f(x):
         return x ** 2 + 3 * x
 
+    def foo(x):
+        x1, x2 = x[0], x[1]
+        return 100 * (x2 - x1 ** 2) ** 2 + (1 - x1) ** 2
 
     accuracy = .005
     left, right = -10, 10
@@ -84,26 +87,16 @@ if __name__ == '__main__':
     fig = pyplot.figure()
     ax = fig.add_subplot(1, 2, 1)
 
-
-    def foo(x):
-        x1, x2 = x[0], x[1]
-        return 100 * (x2 - x1 ** 2) ** 2 + (1 - x1) ** 2
-
-
     x = y = numpy.linspace(-10, 10, 20)
     X, Y = numpy.meshgrid(x, y)
     Z = foo((X, Y))
-
     ax3d = fig.add_subplot(1, 2, 2, projection='3d')
     ax3d.plot_surface(X, Y, Z)
     ax3d.set_xlabel('X1')
     ax3d.set_ylabel('X2')
-
     desc = gradient_descent(foo, numpy.array([7.0, 7.0]), .001, 1)
     g = add_to_line(ax3d, numpy.array([7.0, 7.0]), desc)
-
     bnext3d = Button(pyplot.axes([.9, 0, 1, .1]), 'Next')
-
     bnext3d.on_clicked(DrawOnClick(fig, g))
 
     line1 = ax.plot(arr, f(arr), 'b-')
@@ -115,9 +108,7 @@ if __name__ == '__main__':
         *coords, 'g-.',
         *coords, 'r-.',
     )
-
     gen = update_all_x_data(lines, uniModMin.fib_search(f, (left, right), accuracy))
-
     bnext = Button(pyplot.axes([0, 0, .1, .1]), 'Next')
     bnext.on_clicked(DrawOnClick(fig, gen))
     pyplot.show()
