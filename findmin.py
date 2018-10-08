@@ -2,6 +2,8 @@
 from matplotlib import pyplot
 from matplotlib.widgets import Button
 from matplotlib.lines import Line2D
+from matplotlib.patches import FancyArrowPatch
+from mpl_toolkits.mplot3d import proj3d
 from typing import Iterable, Generator, Tuple, Callable
 import numpy
 import uniModMin
@@ -9,7 +11,20 @@ import uniModMin
 vec = numpy.ndarray
 
 
-def updateAllXData(lines: Iterable[Line2D], gen: Generator[Tuple, None, None]) -> Generator[None, None, None]:
+class Arrow3D(FancyArrowPatch):
+
+    def __init__(self, xs, ys, zs, *args, **kwargs):
+        FancyArrowPatch.__init__(self, (0, 0), (0, 0), *args, **kwargs)
+        self._verts3d = xs, ys, zs
+
+    def draw(self, renderer):
+        xs3d, ys3d, zs3d = self._verts3d
+        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
+        self.set_positions((xs[0], ys[0]), (xs[1], ys[1]))
+        FancyArrowPatch.draw(self, renderer)
+
+
+def update_all_x_data(lines: Iterable[Line2D], gen: Generator[Tuple, None, None]) -> Generator[None, None, None]:
     for args in gen:
         for line, xdata in zip(lines, args):
             line.set_xdata(xdata)
@@ -71,21 +86,19 @@ if __name__ == '__main__':
     ax3d.plot_surface(X, Y, Z)
     ax3d.set_xlabel('X1')
     ax3d.set_ylabel('X2')
-    x = numpy.array((7, 0))
-    delta = -5
-    x2 = x + delta
 
-    points = [(x, foo(x)), (x2, foo(x2))]
-    lines3d = []
-    for x, fx in points:
-        pass
+    a = Arrow3D([0, 10], [0, 10], [0, 1000000], mutation_scale=20,
+                lw=1, arrowstyle="-|>", color="r")
+    ax3d.add_artist(a)
 
-    ax3d.plot(
-        [x[0]], [x[1]], [foo(x)], 'ro'
-    )
-    ax3d.plot(
-        [x2[0]], [x2[1]], [foo(x2)], 'ro'
-    )
+    # x0 = numpy.array([7,7])
+    # g = first_derivative_descent(foo, x)
+    # for desc in g:
+    #     ax3d.arrow()
+
+    # ax3d.plot(
+    #     [x[0]], [x[1]], [foo(x)], 'ro'
+    # )
 
     line1 = ax.plot(arr, f(arr), 'b-')
     _, _, *yborders = ax.axis()
@@ -97,7 +110,7 @@ if __name__ == '__main__':
         *coords, 'r-.',
     )
 
-    gen = updateAllXData(lines, uniModMin.fib_search(f, (left, right), accuracy))
+    gen = update_all_x_data(lines, uniModMin.fib_search(f, (left, right), accuracy))
 
 
     def on_click(event):
