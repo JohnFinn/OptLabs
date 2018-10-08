@@ -35,6 +35,12 @@ def gradient(func: Callable[[numpy.ndarray], float], x: numpy.ndarray, delta: fl
     return numpy.array(result)
 
 
+def first_derivative_descent(func: Callable[[numpy.ndarray], float], x:numpy.ndarray, delta : float = .001, step : float = .001):
+    while True:
+        grad = gradient(func, x, delta)
+        x += step * grad
+        yield grad
+
 if __name__ == '__main__':
     def f(x):
         return x ** 2 + 3 * x
