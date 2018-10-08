@@ -2,32 +2,28 @@
 from matplotlib import pyplot
 from matplotlib.widgets import Button
 from matplotlib.lines import Line2D
-from matplotlib.patches import FancyArrowPatch
 from mpl_toolkits.mplot3d import proj3d
 from typing import Iterable, Generator, Tuple, Callable
 import numpy
+import itertools
 import uniModMin
 
 vec = numpy.ndarray
 
-
-class Arrow3D(FancyArrowPatch):
-
-    def __init__(self, xs, ys, zs, *args, **kwargs):
-        FancyArrowPatch.__init__(self, (0, 0), (0, 0), *args, **kwargs)
-        self._verts3d = xs, ys, zs
-
-    def draw(self, renderer):
-        xs3d, ys3d, zs3d = self._verts3d
-        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
-        self.set_positions((xs[0], ys[0]), (xs[1], ys[1]))
-        FancyArrowPatch.draw(self, renderer)
 
 
 def update_all_x_data(lines: Iterable[Line2D], gen: Generator[Tuple, None, None]) -> Generator[None, None, None]:
     for args in gen:
         for line, xdata in zip(lines, args):
             line.set_xdata(xdata)
+        yield
+
+
+def add_to_line(axis, start, changes):
+    for grad in changes:
+        next_start = start + -grad
+        axis.plot(*zip(start, next_start), [foo(start), foo(next_start)], 'r-')
+        start = next_start
         yield
 
 
@@ -55,7 +51,8 @@ def gradient(func: Callable[[numpy.ndarray], float], x: numpy.ndarray, delta: fl
 def first_derivative_descent(func: Callable[[vec], float], x: vec, delta: float = .001, step: float = .001):
     while True:
         grad = gradient(func, x, delta)
-        x += step * grad
+        grad /= max(max(grad), abs(min(grad)))
+        x += step * -grad
         yield grad
 
 
@@ -68,7 +65,7 @@ if __name__ == '__main__':
     left, right = -10, 10
     arr = numpy.arange(left, right, accuracy / 10)
 
-    # pyplot.ion()
+    pyplot.ion()
     fig = pyplot.figure()
     ax = fig.add_subplot(1, 2, 1)
 
@@ -87,19 +84,14 @@ if __name__ == '__main__':
     ax3d.set_xlabel('X1')
     ax3d.set_ylabel('X2')
 
-    a = Arrow3D([0, 10], [0, 10], [0, 1000000], mutation_scale=20,
-                lw=1, arrowstyle="-|>", color="r")
-    ax3d.add_artist(a)
+    g = add_to_line(ax3d, numpy.array([7.0, 7.0]), first_derivative_descent(foo, numpy.array([7.0, 7.0]), .001, 1))
 
-    # x0 = numpy.array([7,7])
-    # g = first_derivative_descent(foo, x)
-    # for desc in g:
-    #     ax3d.arrow()
+    for i in itertools.islice(g, 200):
+        pass
 
-    # ax3d.plot(
-    #     [x[0]], [x[1]], [foo(x)], 'ro'
-    # )
-
+    pyplot.show()
+    input()
+    '''
     line1 = ax.plot(arr, f(arr), 'b-')
     _, _, *yborders = ax.axis()
     coords = (0, 0), yborders
@@ -126,3 +118,4 @@ if __name__ == '__main__':
     bnext = Button(pyplot.axes([0, 0, .1, .1]), 'Next')
     bnext.on_clicked(on_click)
     pyplot.show()
+    '''
