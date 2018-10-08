@@ -111,5 +111,4 @@ if __name__ == '__main__':
     gen = update_all_x_data(lines, uniModMin.fib_search(f, (left, right), accuracy))
     bnext = Button(pyplot.axes([0, 0, .1, .1]), 'Next')
     bnext.on_clicked(DrawOnClick(fig, gen))
-    pyplot.show()
-    input()
+    pyplot.show(block=True)
