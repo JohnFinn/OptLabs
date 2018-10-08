@@ -6,6 +6,8 @@ from typing import Iterable, Generator, Tuple, Callable
 import numpy
 import uniModMin
 
+vec = numpy.ndarray
+
 
 def updateAllXData(lines: Iterable[Line2D], gen: Generator[Tuple, None, None]) -> Generator[None, None, None]:
     for args in gen:
@@ -35,11 +37,12 @@ def gradient(func: Callable[[numpy.ndarray], float], x: numpy.ndarray, delta: fl
     return numpy.array(result)
 
 
-def first_derivative_descent(func: Callable[[numpy.ndarray], float], x:numpy.ndarray, delta : float = .001, step : float = .001):
+def first_derivative_descent(func: Callable[[vec], float], x: vec, delta: float = .001, step: float = .001):
     while True:
         grad = gradient(func, x, delta)
         x += step * grad
         yield grad
+
 
 if __name__ == '__main__':
     def f(x):
