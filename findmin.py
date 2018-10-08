@@ -48,7 +48,7 @@ def gradient(func: Callable[[numpy.ndarray], float], x: numpy.ndarray, delta: fl
     return numpy.array(result)
 
 
-def first_derivative_descent(func: Callable[[vec], float], x: vec, delta: float = .001, step: float = .001):
+def gradient_descent(func: Callable[[vec], float], x: vec, delta: float = .001, step: float = .001):
     while True:
         grad = gradient(func, x, delta)
         grad /= max(max(grad), abs(min(grad)))
@@ -84,14 +84,22 @@ if __name__ == '__main__':
     ax3d.set_xlabel('X1')
     ax3d.set_ylabel('X2')
 
-    g = add_to_line(ax3d, numpy.array([7.0, 7.0]), first_derivative_descent(foo, numpy.array([7.0, 7.0]), .001, 1))
+    desc = gradient_descent(foo, numpy.array([7.0, 7.0]), .001, 1)
+    g = add_to_line(ax3d, numpy.array([7.0, 7.0]), desc)
 
-    for i in itertools.islice(g, 200):
-        pass
+    bnext3d = Button(pyplot.axes([.9, 0, 1, .1]), 'Next')
 
-    pyplot.show()
-    input()
-    '''
+    def on_click1(event):
+        try:
+            next(g)
+        except StopIteration:
+            pass
+        else:
+            fig.canvas.flush_events()
+            fig.canvas.draw()
+
+    bnext3d.on_clicked(on_click1)
+
     line1 = ax.plot(arr, f(arr), 'b-')
     _, _, *yborders = ax.axis()
     coords = (0, 0), yborders
@@ -118,4 +126,4 @@ if __name__ == '__main__':
     bnext = Button(pyplot.axes([0, 0, .1, .1]), 'Next')
     bnext.on_clicked(on_click)
     pyplot.show()
-    '''
+    input()
