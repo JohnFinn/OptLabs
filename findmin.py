@@ -16,7 +16,7 @@ def update_all_x_data(lines: Iterable[Line2D], gen: Generator[Tuple, None, None]
     for args in gen:
         for line, xdata in zip(lines, args):
             line.set_xdata(xdata)
-        yield
+        yield args
 
 
 def add_to_line(axis, start, changes):
@@ -24,7 +24,7 @@ def add_to_line(axis, start, changes):
         next_start = start + -grad
         axis.plot(*zip(start, next_start), [foo(start), foo(next_start)], 'r-')
         start = next_start
-        yield
+        yield start
 
 
 def flatten(iterable: Iterable[Iterable]) -> Iterable:
@@ -63,10 +63,11 @@ class DrawOnClick:
     def __init__(self, figure, gen):
         self.figure = figure
         self.gen = gen
+        self.last = None
 
     def __call__(self, event):
         try:
-            next(self.gen)
+            self.last = next(self.gen)
         except StopIteration:
             pass
         else:
@@ -100,7 +101,8 @@ if __name__ == '__main__':
     desc = IterCounter(gradient_descent(foo, numpy.array([7.0, 7.0]), .001, 1))
     g = add_to_line(ax3d, numpy.array([7.0, 7.0]), desc)
     bnext3d = Button(pyplot.axes([.9, 0, 1, .1]), 'Next')
-    bnext3d.on_clicked(DrawOnClick(fig, g))
+    clicker1 = DrawOnClick(fig, g)
+    bnext3d.on_clicked(clicker1)
 
     line1 = ax.plot(arr, f(arr), 'b-')
     _, _, *yborders = ax.axis()
@@ -115,7 +117,10 @@ if __name__ == '__main__':
     counter_gen = IterCounter(func(f, (left, right), accuracy))
     gen = update_all_x_data(lines, counter_gen)
     bnext = Button(pyplot.axes([0, 0, .1, .1]), 'Next')
-    bnext.on_clicked(DrawOnClick(fig, gen))
+    clicker2 = DrawOnClick(fig, gen)
+    bnext.on_clicked(clicker2)
     pyplot.show(block=True)
     print(counter_gen.count)
     print(desc.count)
+    print(clicker1.last)
+    print(clicker2.last)

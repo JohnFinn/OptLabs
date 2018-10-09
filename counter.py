@@ -31,14 +31,9 @@ class IterCounter:
         self.count = 0
 
     def __next__(self):
-        try:
-            res = next(self.gen)
-        except StopIteration:
-            pass
-        else:
-            self.count += 1
-            return res
-
+        res = next(self.gen)
+        self.count += 1
+        return res
 
     def __iter__(self):
         self.count = 0
