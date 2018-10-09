@@ -22,4 +22,18 @@ class Counter:
     
     def __call__(self, *args, **kwargs):
         self.count += 1
-        self.func(*args, **kwargs)
+        return self.func(*args, **kwargs)
+
+
+class IterCounter:
+    def __init__(self, gen):
+        self.gen = gen
+        self.count = 0
+
+    def __next__(self):
+        self.count += 1
+        return next(self.gen)
+
+    def __iter__(self):
+        self.count = 0
+        return self

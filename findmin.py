@@ -7,6 +7,7 @@ from typing import Iterable, Generator, Tuple, Callable
 import numpy
 import itertools
 import uniModMin
+from counter import IterCounter
 
 vec = numpy.ndarray
 
@@ -96,7 +97,7 @@ if __name__ == '__main__':
     ax3d.plot_surface(X, Y, Z)
     ax3d.set_xlabel('X1')
     ax3d.set_ylabel('X2')
-    desc = gradient_descent(foo, numpy.array([7.0, 7.0]), .001, 1)
+    desc = IterCounter(gradient_descent(foo, numpy.array([7.0, 7.0]), .001, 1))
     g = add_to_line(ax3d, numpy.array([7.0, 7.0]), desc)
     bnext3d = Button(pyplot.axes([.9, 0, 1, .1]), 'Next')
     bnext3d.on_clicked(DrawOnClick(fig, g))
@@ -110,7 +111,11 @@ if __name__ == '__main__':
         *coords, 'g-.',
         *coords, 'r-.',
     )
-    gen = update_all_x_data(lines, uniModMin.fib_search(f, (left, right), accuracy))
+    func = uniModMin.fib_search
+    counter_gen = IterCounter(func(f, (left, right), accuracy))
+    gen = update_all_x_data(lines, counter_gen)
     bnext = Button(pyplot.axes([0, 0, .1, .1]), 'Next')
     bnext.on_clicked(DrawOnClick(fig, gen))
     pyplot.show(block=True)
+    print(counter_gen.count)
+    print(desc.count)

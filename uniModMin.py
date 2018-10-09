@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import numpy, time, random
 from typing import Tuple, Generator, Callable, Iterable
 
 Tffff = Tuple[float, float, float, float]
