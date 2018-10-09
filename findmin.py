@@ -11,7 +11,6 @@ import uniModMin
 vec = numpy.ndarray
 
 
-
 def update_all_x_data(lines: Iterable[Line2D], gen: Generator[Tuple, None, None]) -> Generator[None, None, None]:
     for args in gen:
         for line, xdata in zip(lines, args):
@@ -52,7 +51,10 @@ def gradient_descent(func: Callable[[vec], float], x: vec, delta: float = .001, 
     while True:
         grad = gradient(func, x, delta)
         grad /= max(max(grad), abs(min(grad)))
-        x += step * -grad
+        next_x = x + step * -grad
+        if all(map(lambda xi: xi <= delta, x)):
+            break
+        x = next_x
         yield grad
 
 
