@@ -7,6 +7,41 @@ Cff = Callable[[float], float]
 GTffff = Generator[Tffff, None, None]
 
 
+def find_interval_left(func: Callable, position, step):
+    """
+    >>> left, right = find_interval_left(lambda x: x**2, 10, 1)
+    >>> left <= 0
+    True
+    >>> right >= 0
+    True
+    """
+    left, right = find_interval_right(lambda x: func(-x), -position, step)
+    return -right, -left
+
+
+def find_interval_right(func: Callable, position, step):
+    """
+    >>> left, right = find_interval_right(lambda x: x**2, -10, 1)
+    >>> left <= 0
+    True
+    >>> right >= 0
+    True
+    >>> left, right = find_interval_right(lambda x: x**2, -10, 20)
+    >>> left <= 0
+    True
+    >>> right >= 0
+    True
+    """
+    left = func(position)
+    right_position = position + step
+    right = func(right_position)
+    while left > right:
+        right_position += step
+        left, right = right, func(right_position)
+        step *= 2
+    return position, right_position
+
+
 def findmin(func: Cff, borders: Tff, accuracy: float) -> GTffff:
     delta = accuracy / 3
     a, b = borders
