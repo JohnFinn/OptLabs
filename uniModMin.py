@@ -1,10 +1,33 @@
 #!/usr/bin/env python
 from typing import Tuple, Generator, Callable, Iterable
+from numpy import ndarray
+from numpy.linalg import norm
 
 Tffff = Tuple[float, float, float, float]
 Tff = Tuple[float, float]
 Cff = Callable[[float], float]
 GTffff = Generator[Tffff, None, None]
+
+
+def in_direction_of(func: Callable, direction: ndarray) -> Cff:
+    """
+    >>> from numpy import array
+    >>> from numpy.linalg import norm
+    >>>
+    >>> def foo(xvec):
+    ...     x0, x1 = xvec
+    ...     return x0**2 + x1**2
+    >>>
+    >>> func = in_direction_of(foo, array([1,0]))
+    >>> func(1) == foo([1, 0])
+    True
+    >>> func(1.34) == foo([1.34, 0])
+    True
+    >>> func = in_direction_of(foo, array([1,1]))
+    >>> func(2**.5) == foo([1, 1])
+    True
+    """
+    return lambda x: func(direction/norm(direction) * x)
 
 
 def find_interval(func: Callable, position, step=1):
