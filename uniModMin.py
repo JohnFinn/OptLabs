@@ -9,7 +9,7 @@ Cff = Callable[[float], float]
 GTffff = Generator[Tffff, None, None]
 
 
-def in_direction_of(func: Callable, direction: ndarray) -> Cff:
+def in_direction_of(func: Callable, start: ndarray, direction: ndarray) -> Cff:
     """
     >>> from numpy import array
     >>> from numpy.linalg import norm
@@ -18,19 +18,22 @@ def in_direction_of(func: Callable, direction: ndarray) -> Cff:
     ...     x0, x1 = xvec
     ...     return x0**2 + x1**2
     >>>
-    >>> func = in_direction_of(foo, array([1,0]))
+    >>> func = in_direction_of(foo, array([0,0]), array([1,0]))
     >>> func(1) == foo([1, 0])
     True
     >>> func(1.34) == foo([1.34, 0])
     True
-    >>> func = in_direction_of(foo, array([1,1]))
+    >>> func = in_direction_of(foo, array([0,0]), array([1,1]))
     >>> func(2**.5) == foo([1, 1])
     True
+    >>> func = in_direction_of(foo, array([-1,-1]), array([1,1]))
+    >>> func(0) == foo([-1, -1])
+    True
     """
-    return lambda x: func(direction/norm(direction) * x)
+    return lambda x: func(start + direction/norm(direction) * x)
 
 
-def find_interval(func: Callable, position, step=1):
+def find_interval(func: Callable, position, step=1) -> Tuple[float, float]:
     """
     >>> left, right = find_interval_left(lambda x: x**2, 10, 1)
     >>> left <= 0
@@ -43,10 +46,10 @@ def find_interval(func: Callable, position, step=1):
     >>> right >= 0
     True
     """
-    if func(position + 1) > func(position):
-        return find_interval_right(func, position, step)
-    else:
+    if func(position + step) > func(position):
         return find_interval_left(func, position, step)
+    else:
+        return find_interval_right(func, position, step)
 
 
 def find_interval_left(func: Callable, position, step):
@@ -84,12 +87,18 @@ def find_interval_right(func: Callable, position, step):
     right = func(right_position)
     while left > right:
         right_position += step
-        left, right = right, func(right_position)
+        right = func(right_position)
         step *= 2
     return position, right_position
 
 
-def findmin(func: Cff, borders: Tff, accuracy: float) -> GTffff:
+def findmin(func: Cff, borders: Tff, accuracy: float):
+    for a, b, x1, x2 in __findmin(func, borders, accuracy):
+        pass
+    return (a + b) / 2
+
+
+def __findmin(func: Cff, borders: Tff, accuracy: float) -> GTffff:
     delta = accuracy / 3
     a, b = borders
     while b - a > accuracy:
