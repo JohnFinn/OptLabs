@@ -93,6 +93,11 @@ def find_interval_right(func: Callable, position, step):
 
 
 def findmin(func: Cff, borders: Tff, accuracy: float):
+    """
+    >>> res = findmin(lambda x: (x-3)**2 + 1, (-100, 100), .001)
+    >>> 2.999 < res < 3.001
+    True
+    """
     for a, b, x1, x2 in __findmin(func, borders, accuracy):
         pass
     return (a + b) / 2
