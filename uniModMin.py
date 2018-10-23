@@ -46,10 +46,13 @@ def find_interval(func: Callable, position, step=1) -> Tuple[float, float]:
     >>> right >= 0
     True
     """
-    if func(position + step) > func(position):
+    l, m, r = map(func, (position - step, position, position + step))
+    if l < m < r:
         return find_interval_left(func, position, step)
-    else:
+    if l > m > r:
         return find_interval_right(func, position, step)
+    if m < l and m < r:
+        return position - step, position + step
 
 
 def find_interval_left(func: Callable, position, step):
