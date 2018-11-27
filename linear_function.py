@@ -1,3 +1,4 @@
+from __future__ import annotations
 from numpy import array
 
 
@@ -29,7 +30,7 @@ class LinearFunction:
     def free(self):
         return self._free
 
-    def substitute(self, index: int, other):
+    def substitute(self, index: int, other: LinearFunction):
         val = self._coefs[index]
         self._coefs += val * other._coefs
         self._coefs[index] = val * other._coefs[index]
