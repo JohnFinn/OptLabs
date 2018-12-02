@@ -1,5 +1,6 @@
 from typing import List, Iterable, Callable, VT, KT
 from linear_function import LinearFunction
+from numpy import inf
 
 
 class Slack(int):
@@ -23,14 +24,27 @@ class Helper:
 def maximize(constraints: List[LinearFunction], objective_fn: LinearFunction) -> List[float]:
     """
     >>> from linear_function import LinearFunction
-    >>> constraints = [                                                         \
-        LinearFunction(18.0, [-2.0, -1.0, -1.0]),                               \
-        LinearFunction(30.0, [-1.0, -2.0, -2.0]),                               \
-        LinearFunction(24.0, [-2.0, -2.0, -2.0]),                               \
+    >>> from numpy import array
+    >>> constraints = [                                                                             \
+        LinearFunction(18, [-2, -1, -1]),                                                           \
+        LinearFunction(30, [-1, -2, -2]),                                                           \
+        LinearFunction(24, [-2, -2, -2]),                                                           \
     ]
-    >>> objective_fn = LinearFunction(0.0, [6.0, 5.0, 4.0])
+    >>> objective_fn = LinearFunction(0, [6, 5, 4])
     >>> maximize(constraints, objective_fn)
-    [6.0, 6.0, 0]
+    [Fraction(6, 1), Fraction(6, 1), 0]
+    >>>
+    >>>
+    >>> A = [                                                                                       \
+        [1, 2, -1, 2, 4],                                                                           \
+        [0, -1, 2, 1, 3],                                                                           \
+        [1, -3, 2, 2, 0],                                                                           \
+    ]
+    >>> b = [1, 3, 4]
+    >>> c = [1, -3, 2, 1, 4]
+    >>> constraints = [LinearFunction(free, -array(coefs)) for coefs, free in zip(A, b)]
+    >>> objective_fn = LinearFunction(0, c)
+    >>> maximize(constraints, objective_fn)
     """
     h = Helper(len(objective_fn.coefs), len(constraints))
     while any(map(lambda x: x > 0, objective_fn.coefs)):
@@ -53,21 +67,22 @@ def pivot(constraints: List[LinearFunction], objective_fn: LinearFunction, callb
     """
     >>> from linear_function import LinearFunction
     >>> constraints = [                                                         \
-        LinearFunction(18.0, [-2.0, -1.0, -1.0]),                               \
-        LinearFunction(30.0, [-1.0, -2.0, -2.0]),                               \
-        LinearFunction(24.0, [-2.0, -2.0, -2.0]),                               \
+        LinearFunction(18, [-2, -1, -1]),                                       \
+        LinearFunction(30, [-1, -2, -2]),                                       \
+        LinearFunction(24, [-2, -2, -2]),                                       \
     ]
-    >>> objective_fn = LinearFunction(0.0, [6.0, 5.0, 4.0])
+    >>> objective_fn = LinearFunction(0, [6, 5, 4])
     >>> _pivot(constraints, objective_fn)
     >>> print(objective_fn)
-    54.0 + -3.0*x₀ + 2.0*x₁ + 1.0*x₂
+    54 + -3*x₀ + 2*x₁ + 1*x₂
     >>> for i in constraints: print(i)
-    9.0 + -0.5*x₀ + -0.5*x₁ + -0.5*x₂
-    21.0 + 0.5*x₀ + -1.5*x₁ + -1.5*x₂
-    6.0 + 1.0*x₀ + -1.0*x₁ + -1.0*x₂
+    9 + -1/2*x₀ + -1/2*x₁ + -1/2*x₂
+    21 + 1/2*x₀ + -3/2*x₁ + -3/2*x₂
+    6 + 1*x₀ + -1*x₁ + -1*x₂
     """
     arg_number = first_index(objective_fn.coefs, lambda x: x > 0)
     index = tightest_constraint(constraints, arg_number)
+    assert -constraints[index].free / constraints[index].coefs[arg_number] > 0
     constraints[index].rearrange(arg_number)
     for c in skip_at(constraints, index):
         c.substitute(arg_number, constraints[index])
@@ -79,14 +94,34 @@ def tightest_constraint(constraints: List[LinearFunction], index: int) -> int:
     """
     >>> from linear_function import LinearFunction
     >>> constraints = [                                                         \
-        LinearFunction(18.0, [-2.0, -1.0, -1.0]),                               \
-        LinearFunction(30.0, [-1.0, -2.0, -2.0]),                               \
-        LinearFunction(24.0, [-2.0, -2.0, -2.0]),                               \
+        LinearFunction(18, [-2, -1, -1]),                                       \
+        LinearFunction(30, [-1, -2, -2]),                                       \
+        LinearFunction(24, [-2, -2, -2]),                                       \
     ]
     >>> tightest_constraint(constraints, 1)
     2
     """
-    return min_index(constraints, key=lambda x: -x.free/x.coefs[index])
+    def selector(x: LinearFunction):
+        value = x.coefs[index]
+        if value == 0 or same_sign(value, x.free):
+            return inf
+        return -x.free/value
+    return min_index(constraints, key=selector)
+
+
+def same_sign(a, b):
+    """
+    >>> same_sign(1, 1)
+    True
+    >>> same_sign(1, -1)
+    False
+    >>> same_sign(-1, -1)
+    True
+    >>> same_sign(-1, 1)
+    False
+    """
+    return (a > 0) == (b > 0)
+
 
 
 def min_index(sequence: Iterable[VT], key: Callable[[VT], KT]) -> int:
