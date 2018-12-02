@@ -39,7 +39,7 @@ class LinearFunction:
         self._coefs = self._coefs / -val
         self._free /= -val
 
-    def __repr__(self):
+    def __str__(self):
         return f'{self.free} + ' + ' + '.join(map(self._str_one, range(len(self._coefs))))
 
     def _str_one(self, index: int) -> str:
