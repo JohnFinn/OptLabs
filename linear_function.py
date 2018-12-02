@@ -6,11 +6,11 @@ class LinearFunction:
     """
     >>> f = LinearFunction(18.0, [-2.0, -1.0, -1.0])
     >>> f.rearrange(0)
-    >>> f
+    >>> print(f)
     9.0 + -0.5*x₀ + -0.5*x₁ + -0.5*x₂
     >>> f2 = LinearFunction(30.0, [-1.0, -2.0, -2.0])
     >>> f2.substitute(0, f)
-    >>> f2
+    >>> print(f2)
     21.0 + 0.5*x₀ + -1.5*x₁ + -1.5*x₂
     """
     subscript = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
