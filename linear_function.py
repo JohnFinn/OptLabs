@@ -1,23 +1,29 @@
 from __future__ import annotations
 from numpy import array
+from typing import List
+from operator import mul
+from fractions import Fraction
 
 
 class LinearFunction:
     """
-    >>> f = LinearFunction(18.0, [-2.0, -1.0, -1.0])
+    >>> f = LinearFunction(18, [-2, -1, -1])
     >>> f.rearrange(0)
     >>> print(f)
-    9.0 + -0.5*x₀ + -0.5*x₁ + -0.5*x₂
-    >>> f2 = LinearFunction(30.0, [-1.0, -2.0, -2.0])
+    9 + -1/2*x₀ + -1/2*x₁ + -1/2*x₂
+    >>> f2 = LinearFunction(30, [-1, -2, -2])
     >>> f2.substitute(0, f)
     >>> print(f2)
-    21.0 + 0.5*x₀ + -1.5*x₁ + -1.5*x₂
+    21 + 1/2*x₀ + -3/2*x₁ + -3/2*x₂
     """
     subscript = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 
     def __init__(self, free, coefs):
-        self._free = free
-        self._coefs = array(coefs)
+        self._free = Fraction(free)
+        self._coefs = array(list(map(Fraction, coefs)))
+
+    def __call__(self, args: List[float]) -> float:
+        return self._free + sum(map(mul, self._coefs, args))
 
     @property
     def coefs(self):
