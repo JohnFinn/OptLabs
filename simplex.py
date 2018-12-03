@@ -45,6 +45,7 @@ def maximize(constraints: List[LinearFunction], objective_fn: LinearFunction) ->
     >>> constraints = [LinearFunction(free, -array(coefs)) for coefs, free in zip(A, b)]
     >>> objective_fn = LinearFunction(0, c)
     >>> maximize(constraints, objective_fn)
+    [Fraction(26, 17), 0, Fraction(21, 17), 0, Fraction(3, 17)]
     """
     h = Helper(len(objective_fn.coefs), len(constraints))
     while any(map(lambda x: x > 0, objective_fn.coefs)):
