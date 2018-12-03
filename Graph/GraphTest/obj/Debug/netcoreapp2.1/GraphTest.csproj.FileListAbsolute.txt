@@ -1,0 +1,17 @@
+/home/jouny/code/Graph/Graph/GraphTest/obj/Debug/netcoreapp2.1/GraphTest.csprojAssemblyReference.cache
+/home/jouny/code/Graph/Graph/GraphTest/obj/Debug/netcoreapp2.1/GraphTest.csproj.CoreCompileInputs.cache
+/home/jouny/code/Graph/Graph/GraphTest/obj/Debug/netcoreapp2.1/GraphTest.AssemblyInfoInputs.cache
+/home/jouny/code/Graph/Graph/GraphTest/obj/Debug/netcoreapp2.1/GraphTest.AssemblyInfo.cs
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/xunit.runner.utility.netcoreapp10.dll
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/GraphTest.deps.json
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/GraphTest.runtimeconfig.json
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/GraphTest.runtimeconfig.dev.json
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/GraphTest.dll
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/GraphTest.pdb
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/Graph.dll
+/home/jouny/code/Graph/Graph/GraphTest/bin/Debug/netcoreapp2.1/Graph.pdb
+/home/jouny/code/Graph/Graph/GraphTest/obj/Debug/netcoreapp2.1/GraphTest.csproj.CopyComplete
+/home/jouny/code/Graph/Graph/GraphTest/obj/Debug/netcoreapp2.1/GraphTest.dll
+/home/jouny/code/Graph/Graph/GraphTest/obj/Debug/netcoreapp2.1/GraphTest.pdb

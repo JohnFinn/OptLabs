@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c7fa706-78f6-416c-9974-a6bdfe70c436" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Graph/Graph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/Graph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphTest/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphTest/UnitTest1.cs" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="594972107">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="51" />
+          <entry key="csproj" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C#" value="51" />
+          <entry key="Csproj" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="2382" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="2382" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Graph" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Graph/Graph.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+              <folding>
+                <marker date="1541678702395" expanded="false" signature="6:78" ph="..." />
+                <marker date="1541678702395" expanded="true" signature="95:1808" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="115:318" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="264:312" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="357:1806" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="476:545" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="606:678" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="719:1579" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="924:1539" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="1051:1525" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="1279:1380" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="1414:1507" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="1627:1703" ph="{...}" />
+                <marker date="1541678702395" expanded="true" signature="1753:1800" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89577434-FB6B-4973-BD54-58A53FBEF654/ab/cfff1e18/StandardToolWindows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GraphTest/UnitTest1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Graph/Class1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Graph/Graph.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Graph/EdgesGraph.cs" />
+        <option value="$PROJECT_DIR$/GraphTest/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/Graph/Class1.cs" />
+        <option value="$PROJECT_DIR$/Graph/Graph.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="106" />
+    <option name="y" value="108" />
+    <option name="width" value="820" />
+    <option name="height" value="774" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="FileSystemExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="161ac34:FileSystemExplorerRootNode" />
+              <item name="Graph" type="34e6ba20:FileSystemExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="161ac34:FileSystemExplorerRootNode" />
+              <item name="Graph" type="34e6ba20:FileSystemExplorerNode" />
+              <item name="Graph" type="34e6ba20:FileSystemExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Graph" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="gutt&#9;ACTION&#9;EditorToggleShowGutterIcons&#10;tool&#9;null&#9;null&#10;main tool&#9;ACTION&#9;MainToolBar&#10;toolba&#9;null&#9;null&#10;status&#9;null&#9;null&#10;naviga&#9;null&#9;null&#10;toolb&#9;null&#9;null&#10;main toolba&#9;ACTION&#9;MainToolBar&#10;stat&#9;null&#9;null&#10;gutter&#9;ACTION&#9;EditorToggleShowGutterIcons&#10;tool &#9;null&#9;null&#10;de&#9;ACTION&#9;ActivateDebugToolWindow&#10;navi&#9;null&#9;null&#10;bar&#9;ACTION&#9;ViewToolBar" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c7fa706-78f6-416c-9974-a6bdfe70c436" name="Default Changelist" comment="" />
+      <created>1541358028626</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541358028626</updated>
+      <workItem from="1541358030971" duration="8687000" />
+      <workItem from="1541495579779" duration="571000" />
+      <workItem from="1541498312408" duration="594000" />
+      <workItem from="1541503351250" duration="291000" />
+      <workItem from="1541673993033" duration="4694000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="14837000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49893162" weight="0.2695187" />
+      <window_info id="Structure" order="1" sideWeight="0.50106835" side_tool="true" weight="0.26898396" />
+      <window_info id="Favorites" order="2" sideWeight="0.50050557" side_tool="true" weight="0.25572917" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5368526" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962587" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32962587" />
+      <window_info anchor="bottom" id="Unit Tests" order="10" weight="0.32760364" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32968128" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="13" weight="0.32968128" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" weight="0.3296875" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49943247" visible="true" weight="0.26256683" />
+      <window_info id="Structure" order="1" sideWeight="0.50056756" side_tool="true" visible="true" weight="0.26256683" />
+      <window_info id="Favorites" order="2" sideWeight="0.50050557" side_tool="true" weight="0.25572917" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5368526" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962587" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32962587" />
+      <window_info anchor="bottom" id="Unit Tests" order="10" weight="0.32760364" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32968128" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="13" weight="0.32968128" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" weight="0.3296875" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GraphTest/UnitTest1.cs</url>
+          <line>38</line>
+          <properties documentPath="$PROJECT_DIR$/GraphTest/UnitTest1.cs" initialLine="36">
+            <startOffsets>
+              <option value="1033" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1063" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Graph/Graph.cs</url>
+          <line>42</line>
+          <properties documentPath="$PROJECT_DIR$/Graph/Graph.cs" initialLine="41">
+            <startOffsets>
+              <option value="1090" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1133" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Graph/Graph.cs</url>
+          <line>58</line>
+          <properties documentPath="$PROJECT_DIR$/Graph/Graph.cs" initialLine="57">
+            <startOffsets>
+              <option value="1627" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1628" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Graph/EdgesGraph.cs" />
+    <entry file="file://$PROJECT_DIR$/GraphTest/UnitTest1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding>
+            <marker date="1541498425814" expanded="false" signature="6:78" ph="..." />
+            <marker date="1541498425814" expanded="true" signature="99:1171" ph="{...}" />
+            <marker date="1541498425814" expanded="true" signature="128:1169" ph="{...}" />
+            <marker date="1541498425814" expanded="true" signature="177:1163" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/Class1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <marker date="1541361556088" expanded="true" signature="6:59" ph="..." />
+            <marker date="1541361556088" expanded="true" signature="76:245" ph="{...}" />
+            <marker date="1541361556088" expanded="true" signature="125:243" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89577434-FB6B-4973-BD54-58A53FBEF654/ab/cfff1e18/StandardToolWindows.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/Graph.csproj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/Graph.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding>
+            <marker date="1541678702395" expanded="false" signature="6:78" ph="..." />
+            <marker date="1541678702395" expanded="true" signature="95:1808" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="115:318" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="264:312" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="357:1806" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="476:545" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="606:678" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="719:1579" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="924:1539" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="1051:1525" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="1279:1380" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="1414:1507" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="1627:1703" ph="{...}" />
+            <marker date="1541678702395" expanded="true" signature="1753:1800" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

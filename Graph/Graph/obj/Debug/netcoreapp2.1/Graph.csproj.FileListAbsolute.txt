@@ -1,0 +1,9 @@
+/home/jouny/code/Graph/Graph/Graph/bin/Debug/netcoreapp2.1/Graph.deps.json
+/home/jouny/code/Graph/Graph/Graph/bin/Debug/netcoreapp2.1/Graph.dll
+/home/jouny/code/Graph/Graph/Graph/bin/Debug/netcoreapp2.1/Graph.pdb
+/home/jouny/code/Graph/Graph/Graph/obj/Debug/netcoreapp2.1/Graph.csprojAssemblyReference.cache
+/home/jouny/code/Graph/Graph/Graph/obj/Debug/netcoreapp2.1/Graph.csproj.CoreCompileInputs.cache
+/home/jouny/code/Graph/Graph/Graph/obj/Debug/netcoreapp2.1/Graph.AssemblyInfoInputs.cache
+/home/jouny/code/Graph/Graph/Graph/obj/Debug/netcoreapp2.1/Graph.AssemblyInfo.cs
+/home/jouny/code/Graph/Graph/Graph/obj/Debug/netcoreapp2.1/Graph.dll
+/home/jouny/code/Graph/Graph/Graph/obj/Debug/netcoreapp2.1/Graph.pdb

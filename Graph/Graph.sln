@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{37D2A3E9-5DF3-4E74-A2B3-9A54F68FE990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTest", "GraphTest\GraphTest.csproj", "{CD03ED06-EA33-40E8-8152-0B16D52B2528}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37D2A3E9-5DF3-4E74-A2B3-9A54F68FE990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D2A3E9-5DF3-4E74-A2B3-9A54F68FE990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D2A3E9-5DF3-4E74-A2B3-9A54F68FE990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D2A3E9-5DF3-4E74-A2B3-9A54F68FE990}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD03ED06-EA33-40E8-8152-0B16D52B2528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD03ED06-EA33-40E8-8152-0B16D52B2528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD03ED06-EA33-40E8-8152-0B16D52B2528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD03ED06-EA33-40E8-8152-0B16D52B2528}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
